@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|Win32">
+      <Configuration>debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8CDDD363-05D3-4760-9162-BABA6169EA12}</ProjectGuid>
+    <RootNamespace>qjsc</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
+    <OutDir>..\..\build\windows\x86\debug\</OutDir>
+    <IntDir>..\..\build\.objs\qjsc\windows\x86\debug\</IntDir>
+    <TargetName>qjsc</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <OutDir>..\..\build\windows\x64\debug\</OutDir>
+    <IntDir>..\..\build\.objs\qjsc\windows\x64\debug\</IntDir>
+    <TargetName>qjsc</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" Label="Debugger">
+    <LocalDebuggerWorkingDirectory>..\..\build\windows\x86\debug</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerEnvironment>PATH=;$([System.Environment]::GetEnvironmentVariable('PATH'));%(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Debugger">
+    <LocalDebuggerWorkingDirectory>..\..\build\windows\x64\debug</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerEnvironment>PATH=;$([System.Environment]::GetEnvironmentVariable('PATH'));%(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
+    <Link>
+      <AdditionalLibraryDirectories>..\..\build\windows\x86\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>quickjs.lib;qkjswinsupport.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>-dynamicbase -nxcompat %(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
+      <PreprocessorDefinitions>EMSCRIPTEN;__config_debug__;__config_Win32__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\..\porting</AdditionalIncludeDirectories>
+      <AdditionalOptions>-FS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Link>
+      <AdditionalLibraryDirectories>..\..\build\windows\x64\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>quickjs.lib;qkjswinsupport.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>-dynamicbase -nxcompat %(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ExternalTemplatesDiagnostics>false</ExternalTemplatesDiagnostics>
+      <PreprocessorDefinitions>EMSCRIPTEN;__config_debug__;__config_x64__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\..\porting</AdditionalIncludeDirectories>
+      <AdditionalOptions>-FS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\qjsc.c">
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

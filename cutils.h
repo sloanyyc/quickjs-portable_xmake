@@ -35,11 +35,17 @@
 #undef WORDS_BIGENDIAN
 #endif
 
+#define CONFIG_VERSION "v2020"
+#define __attribute__(x)
+#define __builtin_clz(x) x=0
+#define __builtin_expect(a,b) (a?1:0)
+
 #define likely(x)       __builtin_expect(!!(x), 1)
 #define unlikely(x)     __builtin_expect(!!(x), 0)
 #define force_inline inline __attribute__((always_inline))
 #define no_inline __attribute__((noinline))
 #define __maybe_unused __attribute__((unused))
+
 
 #define xglue(x, y) x ## y
 #define glue(x, y) xglue(x, y)

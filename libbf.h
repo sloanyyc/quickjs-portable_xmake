@@ -33,7 +33,7 @@
 #define LIMB_LOG2_BITS 5
 #endif
 
-#define LIMB_BITS (1 << LIMB_LOG2_BITS)
+#define LIMB_BITS 32 // (1 << LIMB_LOG2_BITS)
 
 #if LIMB_BITS == 64
 typedef __int128 int128_t;
